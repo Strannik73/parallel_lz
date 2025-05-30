@@ -1,10 +1,9 @@
 from mult_pt import m_pt
-from mult_pr import m_pr
+
 from asyn import asyn_c
 
 def main():
     pr = asyn_c
-    pr = m_pr
     pr = m_pt
     pr.process_image()
     pr.write_file()
