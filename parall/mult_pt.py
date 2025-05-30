@@ -11,14 +11,14 @@ def write_file(file_name, data):
 
 def process_image(path):
     img = Image.open(path)
-    img = img.filter(ImageFilter.GaussianBlur(5))
+    img = img.filter(ImageFilter.GaussianBlur(10))
     img.save(f"processed_{path}")
     print(f"processed_{path}")
 
 # Синхронная запись
 start = time.time()
 for i in range(5):
-    write_file(f"sync_file_{i}.txt", "Hello")
+    write_file(f"sync_file_{i}.jpg", "Hello")
 sync_time = time.time() - start
 print(f"Синхронная запись: {sync_time:.2f} сек")
 
@@ -26,7 +26,7 @@ print(f"Синхронная запись: {sync_time:.2f} сек")
 start = time.time()
 threads = []
 for i in range(5):
-    t = threading.Thread(target=write_file, args=(f"thread_file_{i}.txt", "Hello"))
+    t = threading.Thread(target=write_file, args=(f"thread_file_{i}.jpg", "Hello"))
     t.start()
     threads.append(t)
 for t in threads:
