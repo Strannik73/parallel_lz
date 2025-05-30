@@ -14,6 +14,9 @@ class m_pt:
         img.save(f"processed_{path}")
         print(f"processed_{path}")
         
+    def __del__(self):
+        print('удаление')  
+          
 def main():
     # Синхронная запись
     start = time.time()
